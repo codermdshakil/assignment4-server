@@ -5,6 +5,7 @@ import bookRouter from "./app/controllers/book.controller";
 
 const app: Application = express();
 app.use(express.json());
+app.use(cors());
 
 app.use("/api", bookRouter);
 
@@ -17,11 +18,9 @@ app.get("/health", (req: Request, res: Response) => {
   res.send("OK!");
 });
 
-// Allow requests from your frontend
-app.use(cors({
-  origin: "http://localhost:5173",   // allow only frontend
-  credentials: true
-}));
+// Allow requests from frontend (localhost:5173)
+app.use(cors({ origin: "http://localhost:5173" }));
+
 
 
 // 404 page error handle

@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const book_controller_1 = __importDefault(require("./app/controllers/book.controller"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
+app.use((0, cors_1.default)());
 app.use("/api", book_controller_1.default);
 app.get("/", (req, res) => {
     res.send("Hello world");
@@ -15,11 +16,8 @@ app.get("/", (req, res) => {
 app.get("/health", (req, res) => {
     res.send("OK!");
 });
-// Allow requests from your frontend
-app.use((0, cors_1.default)({
-    origin: "http://localhost:5173", // allow only frontend
-    credentials: true
-}));
+// Allow requests from frontend (localhost:5173)
+app.use((0, cors_1.default)({ origin: "http://localhost:5173" }));
 // 404 page error handle
 app.use((req, res, next) => {
     res.status(404).json({ message: "Route not found!" });
