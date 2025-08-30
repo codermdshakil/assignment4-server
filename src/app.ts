@@ -19,7 +19,7 @@ app.get("/health", (req: Request, res: Response) => {
 });
 
 // Allow requests from frontend (localhost:5173)
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://assignment4-client-ve5k.vercel.app/" }));
 
 
 

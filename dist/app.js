@@ -17,7 +17,7 @@ app.get("/health", (req, res) => {
     res.send("OK!");
 });
 // Allow requests from frontend (localhost:5173)
-app.use((0, cors_1.default)({ origin: "http://localhost:5173" }));
+app.use((0, cors_1.default)({ origin: "https://assignment4-client-ve5k.vercel.app/" }));
 // 404 page error handle
 app.use((req, res, next) => {
     res.status(404).json({ message: "Route not found!" });
