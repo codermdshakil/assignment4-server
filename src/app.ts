@@ -10,7 +10,7 @@ app.use("/api", bookRouter);
 
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello world, from  library management API");
+  res.send("Hello world");
 });
 
 app.get("/health", (req: Request, res: Response) => {
