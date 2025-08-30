@@ -60,12 +60,12 @@ bookRouter.get("/books", async (req: Request, res: Response) => {
   };
 
   // LimitNumber condition
-  const limitNumber = limit ? parseInt(limit as string) : 10;
+  // const limitNumber = limit ? parseInt(limit as string) : 10;
 
   try {
     const data = await Book.find(condition)
-      .sort(sortCondition)
-      .limit(limitNumber);
+      // .sort(sortCondition)
+      // .limit(limitNumber);
 
     // responses
     res.status(200).json({

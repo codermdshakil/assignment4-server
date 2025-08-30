@@ -63,11 +63,11 @@ bookRouter.get("/books", (req, res) => __awaiter(void 0, void 0, void 0, functio
         [sortBy]: flagOrder,
     };
     // LimitNumber condition
-    const limitNumber = limit ? parseInt(limit) : 10;
+    // const limitNumber = limit ? parseInt(limit as string) : 10;
     try {
-        const data = yield book_model_1.Book.find(condition)
-            .sort(sortCondition)
-            .limit(limitNumber);
+        const data = yield book_model_1.Book.find(condition);
+        // .sort(sortCondition)
+        // .limit(limitNumber);
         // responses
         res.status(200).json({
             success: true,
